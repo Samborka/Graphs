@@ -1,0 +1,1 @@
+Solving the OBI problem [Uiquipédia](https://olimpiada.ic.unicamp.br/pratique/p1/2007/f2/uiqui/)

@@ -1,0 +1,1 @@
+Solving the OBI problem [Frete da Família Silva](https://olimpiada.ic.unicamp.br/pratique/p2/2008/f2/frete/)
