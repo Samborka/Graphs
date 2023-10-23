@@ -2,9 +2,10 @@
 #include <vector>
 #include <algorithm>
 
+//Kruskal algorithm
 using namespace std;
 
-typedef pair<int, pair<int, int>> estrada;
+typedef pair<double, pair<int, int>> estrada;
 
 int N, M;
 vector<int> id;
@@ -25,7 +26,7 @@ void join(int p, int q){ //quick-union
   id[id_p] = id_q;
 }
 
-int mst(vector<estrada>& estradas){
+double mst(vector<estrada>& estradas){
   sort(estradas.begin(), estradas.end());
 
   for(int i = 0; i < N; i++){
@@ -34,11 +35,11 @@ int mst(vector<estrada>& estradas){
 
   //Executando kruskal e computando custo mínimo
 
-  int custo = 0;
+  double custo = 0.0;
   int j = 0, k=0;
 
   while(k < N - 1 and j < M){
-    int u = estradas[j].first;
+    double u = estradas[j].first;
     int p = estradas[j].second.first;
     int q = estradas[j].second.second;
 
@@ -56,19 +57,21 @@ int mst(vector<estrada>& estradas){
 
 int main(){
   cin >> N >> M;
-
   id = vector<int>(N);
   vector<estrada> estradas(M);
 
   for(int j = 0; j < M; j++){
-    int p, q, u;
+    int p, q;
+    double u; // Alterado para double para suportar pesos fracionários
     cin >> p >> q >> u;
     estradas[j] = {u, {p, q}};
+
   }
-
+  
   //Aplicando Kruskal e imprimindo resultado
-  cout << mst(estradas) << '\n';
-
+  cout << "-------------------" << endl;
+  cout << "Peso final da árvore geradora de peso mínimo: ";
+  cout << mst(estradas) << endl;
+  cout << "-------------------" << endl;
   return 0;
 }
-
